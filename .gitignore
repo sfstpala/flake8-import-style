@@ -1,0 +1,15 @@
+*.egg-info
+*.pyc
+__pycache__
+/dist
+/build
+/bin
+/lib
+/lib64
+/include
+/share
+/pip-selfcheck.json
+/pyvenv.cfg
+/htmlcov
+/.coverage
+/.tox

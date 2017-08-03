@@ -1,0 +1,9 @@
+include README.md
+include DESCRIPTION.rst
+include COPYING
+include Makefile
+include requirements-dev.txt
+include .coveragerc
+include pip.conf
+include tox.ini
+include .travis.yml
