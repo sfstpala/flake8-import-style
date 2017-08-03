@@ -7,7 +7,7 @@ with open(os.path.join(here, "DESCRIPTION.rst")) as f:
     long_description = f.read()
 
 setuptools.setup(
-    name="flake8-import-style", version="0.2.0",
+    name="flake8-import-style", version="0.3.0",
     description="A flake8 plugin to ensure explicit module imports",
     long_description=long_description,
     packages=setuptools.find_packages(),
