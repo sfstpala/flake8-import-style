@@ -15,6 +15,9 @@ setuptools.setup(
     author_email="stefano.palazzo@gmail.com",
     url="https://github.com/sfstpala/flake8-import-style",
     license="ISC",
+    install_requires=[
+        "setuptools",
+    ],
     test_suite="flake8_import_style.tests",
     entry_points={
         "flake8.extension": [
