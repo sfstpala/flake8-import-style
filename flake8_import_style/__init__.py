@@ -3,6 +3,8 @@ import ast
 import pkg_resources
 
 
+__version__ = pkg_resources.get_distribution(__package__).version
+
 I801 = "I801 use 'import {module}' instead of 'from {module} import {names}'"
 
 
@@ -10,7 +12,7 @@ class I8(object):
     """Complain about all "from x import y" style imports."""
 
     name = "import-style"
-    version = pkg_resources.get_distribution(__package__).version
+    version = __version__
 
     def __init__(self, tree):
         self.tree = tree
