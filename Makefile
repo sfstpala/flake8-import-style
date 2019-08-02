@@ -1,4 +1,4 @@
-python ?= python3.6
+python ?= python3
 package = flake8_import_style
 
 all: $(package).egg-info
