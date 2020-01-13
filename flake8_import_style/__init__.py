@@ -20,6 +20,8 @@ class I8(object):
     def run(self):
         for i in ast.walk(self.tree):
             if isinstance(i, ast.ImportFrom):
+                if i.module == "__future__":
+                    continue
                 message = I801.format(
                     module=(i.module or "..."),
                     names=", ".join(i.name for i in i.names))

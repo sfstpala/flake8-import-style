@@ -42,3 +42,7 @@ class I8Test(unittest.TestCase):
             "I801 use 'import mod' instead of 'from mod import obj'",
             "I801",
         )])
+
+        tree = ast.parse("from __future__ import obj")
+        i8 = flake8_import_style.I8(tree)
+        self.assertEqual(list(i8.run()), [])
