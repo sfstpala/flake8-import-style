@@ -22,21 +22,22 @@ class I8(object):
             if isinstance(i, ast.ImportFrom):
                 if i.module == "__future__":
                     continue
+                module = ("." * i.level) + (i.module or "")
                 names = ", ".join(i.name for i in i.names)
                 if i.module is None:
                     # Relative imports don't work with the `import <>` syntax.
                     message = I801.format(
                         stmt=names,
-                        module="." * i.level,
+                        module=module,
                         names=names)
                 elif len(i.names) == 1:
                     message = I801.format(
                         stmt="{0}.{1}".format(i.module, names),
-                        module=i.module,
+                        module=module,
                         names=names)
                 else:
                     message = I801.format(
                         stmt=i.module,
-                        module=i.module,
+                        module=module,
                         names=names)
                 yield (i.lineno, i.col_offset, message, "I801")

@@ -34,6 +34,24 @@ class I8Test(unittest.TestCase):
             "I801",
         )])
 
+        tree = ast.parse("from ..mod import obj")
+        i8 = flake8_import_style.I8(tree)
+        self.assertEqual(list(i8.run()), [(
+            1,
+            0,
+            "I801 use 'import mod.obj' instead of 'from ..mod import obj'",
+            "I801",
+        )])
+
+        tree = ast.parse("from .mod import obj1, obj2")
+        i8 = flake8_import_style.I8(tree)
+        self.assertEqual(list(i8.run()), [(
+            1,
+            0,
+            "I801 use 'import mod' instead of 'from .mod import obj1, obj2'",
+            "I801",
+        )])
+
         tree = ast.parse("from mod import obj")
         i8 = flake8_import_style.I8(tree)
         self.assertEqual(list(i8.run()), [(
